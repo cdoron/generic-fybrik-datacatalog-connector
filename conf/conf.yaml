@@ -1,9 +1,9 @@
-openmetadata_endpoint: "http://localhost:8585/api"
-openmetadata_sleep_interval: 100
-openmetadata_num_retries: 1000
-openmetadata_connector_port: 8081
-openmetadata_user: admin
-openmetadata_password: admin
+datacatalog_endpoint: "http://localhost:8585/api"
+datacatalog_sleep_interval: 100
+datacatalog_num_retries: 1000
+datacatalog_connector_port: 8081
+datacatalog_user: admin
+datacatalog_password: admin
 
 vault:
   address: http://localhost:8200

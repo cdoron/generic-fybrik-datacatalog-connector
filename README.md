@@ -22,6 +22,16 @@ make run
 `make run` runs the connector with the configuration file in `conf/conf.yaml`. This configuration assumes that the data catalog is running on localhost and listening on port 8585. In addition, it assumes that Vault is running on localhost too and listening on port 8200. If that is not the case, change the configuration file or employ port-forwarding.
 The configuration file also contains a path to a JWT file which is used to identify against Vault.
 
+### Experiment with Connector
+1.
+```bash
+curl -X POST localhost:8081/createAsset -d @mysql.json
+```
+2.
+```bash
+curl -X POST localhost:8081/getAssetInfo -d '{"assetID": "AssetID", "operationType": "read"}'
+```
+
 ## Directory Structure
 - [pkg/database-types](pkg/database-types): Currently, could support data sources such as mysql and s3. The direcory contains the
 [database_type.go](pkg/database-types/database_type.go) file, which defines the DatabaseType interface.

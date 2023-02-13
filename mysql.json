@@ -1,0 +1,16 @@
+{
+    "destinationCatalogID": "openmetadata",
+    "destinationAssetID": "PS_20174392719_1491204439457_log",
+    "details": {
+        "connection": {
+            "mysql": {
+                "hostPort": "mysql.open-metadata.svc.cluster.local:3306",
+                "password": "password",
+                "scheme": "mysql+pymysql",
+                "username": "root",
+		"databaseSchema": "fybrik"
+            },
+            "name": "mysql"
+        }
+    }
+}
