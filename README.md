@@ -3,15 +3,9 @@ Generic Fybrik Connector.
 Implements the Fybrik Data-Catalog specification.
 
 ## Compiling and Running
-The first time you wish to compile the Connector, run:
+To compile the connector code, run:
 ```bash
 make
-```
-`make` automatically generates prerequisite code and compile the connector.
-
-The next times you want to compile, run:
-```bash
-make compile
 ```
 
 To run the connector locally, run:
