@@ -180,13 +180,13 @@ func (s *DataCatalogAPIService) DeleteAsset(ctx context.Context, xRequestDatacat
  * - GetAssetResponse object, which includes:
  *   - credentials - vault plugin path where the data credentials are stored
  *   - resourceMetadata:
- *     - name - name of the resource
- *     - owner - owner of the resource
- *     - geography - geography of the resource
- *     - tags - map of tags associated with the asset, e.g. 'Purpose.finance: true'
- *     - columns - list of columns. each column must include a name. a column may also contain a map of tags
+ *     - name - name of the resource (optional)
+ *     - owner - owner of the resource (optional)
+ *     - geography - geography of the resource (optional)
+ *     - tags - map of tags associated with the asset, e.g. 'Purpose.finance: true' (optional)
+ *     - columns - list of columns. each column must include a name. a column may also contain a map of tags (optional)
  *   - details:
- *     - dataFormat - format in which the data is being read/written by the workload
+ *     - dataFormat - format in which the data is being read/written by the workload (optional)
  *     - connection:
  *       - name: name of the connection to the data source, e.g. 'mysql'
  *       - additional properties: map. for instance, if 'name' is 'mysql', you need a 'mysql' property with a
