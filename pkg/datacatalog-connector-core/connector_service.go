@@ -170,8 +170,30 @@ func (s *DataCatalogAPIService) DeleteAsset(ctx context.Context, xRequestDatacat
 	return api.Response(http.StatusOK, api.DeleteAssetResponse{}), nil
 }
 
-// GetAssetInfo - This REST API gets data asset information from the data catalog configured in
-// fybrik for the data sets indicated in FybrikApplication yaml
+/**
+ * GetAssetInfo - return data asset information from the data catalog
+ * Paremeters:
+ * - xRequestDatacatalogCred - credential information related to catalog from which the asset information is retrieved
+ * - getAssetRequest - structure which includes 'assetID' and 'operationType' (which is always 'read')
+ *
+ * Return values:
+ * - GetAssetResponse object, which includes:
+ *   - credentials - vault plugin path where the data credentials are stored
+ *   - resourceMetadata:
+ *     - name - name of the resource
+ *     - owner - owner of the resource
+ *     - geography - geography of the resource
+ *     - tags - map of tags associated with the asset, e.g. 'Purpose.finance: true'
+ *     - columns - list of columns. each column must include a name. a column may also contain a map of tags
+ *   - details:
+ *     - dataFormat - format in which the data is being read/written by the workload
+ *     - connection:
+ *       - name: name of the connection to the data source, e.g. 'mysql'
+ *       - additional properties: map. for instance, if 'name' is 'mysql', you need a 'mysql' property with a
+ *                                value which is a map containing all connection information for data source. In
+ *                                the case of 'mysql', that information must include 'host', 'port', 'database' and 'table'
+ * - error object, if error was encountered, or nil otherwise
+ */
 func (s *DataCatalogAPIService) GetAssetInfo(ctx context.Context, xRequestDatacatalogCred string,
 	getAssetRequest *api.GetAssetRequest) (api.ImplResponse, error) {
 	if !s.initialized {
